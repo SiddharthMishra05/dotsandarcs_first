@@ -1,0 +1,51 @@
+<head>
+  <title>Voice of the w0rld! - brought to you by - d&a</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Login page </h1>
+    </header>
+{{> loginButtons}}
+
+
+      {{#if currentUser}}
+	  
+
+  <div class="container">
+  <title>Comments for the w0rld!</title>
+    <header>
+      <h1>COMMENTS! YAAAAY! ({{incompleteCount}})</h1>
+
+      <label class="hide-completed">
+        <input type="checkbox" checked="{{hideCompleted}}" />
+        Hide unwanted comments.
+      </label>
+
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new comments" />
+        </form>
+    </header>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+		
+      {{/if}}
+    
+  </div>
+</body>
+
+<template name="task">
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}} <br> - by <strong>{{username}}<br> - {{createdAt}}</strong></span>
+  </li>
+</template>
